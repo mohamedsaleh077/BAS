@@ -170,7 +170,12 @@ I will rate from 4.
     - user will have a guide (maybe will be in the left side or with `?` icon) explain to him what is going and what should he do.
 
 ## 2.7 Assumptions and Dependencies
-I didnt decided yet.
+- Captcha
+- SMS
+- Real-Time notifications
+- Maps
+- E-Mail
+- ...
 
 # External Interface Requirements
 ## 3.1 User Interfaces

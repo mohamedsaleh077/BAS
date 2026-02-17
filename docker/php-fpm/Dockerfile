@@ -1,0 +1,27 @@
+FROM php:8.5-fpm
+
+WORKDIR /var/www/html/
+
+ENV PHP_INI_DIR /usr/local/etc/php
+
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    && docker-php-ext-install zip
+
+ENV APP_ENV production
+ENV APP_DEBUG true
+
+LABEL maintainer="Your Name <mohammed.saleh@tuta.io>"
+LABEL version="1.0"
+LABEL description="Docker image for PHP 8.5 FPM"
+
+# laravel shit ig?
+# RUN chmod -R 775 storage bootstrap/cache
+# RUN chown -R www-data:www-data storage bootstrap/cache
+
+# COPY ./php.ini-production /usr/local/etc/php-fpm.conf
+
+EXPOSE 9000
+
+CMD php-fpm
