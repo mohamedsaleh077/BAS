@@ -70,7 +70,7 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - ./postgre/pgadmin-data:/var/lib/pgadmin
+      - pgadmin-data:/var/lib/pgadmin
     depends_on:
       postgresql:
         condition: service_healthy
@@ -141,4 +141,6 @@ volumes:
   cache:
     driver: local
   mysql_volume:
+    driver: local
+  pgadmin-data:
     driver: local
