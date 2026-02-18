@@ -6,16 +6,16 @@ req_extensions     = req_ext
 distinguished_name = dn
 
 [dn]
-CN = amrcompany.com
+CN = basuyandsell.com
 
 [req_ext]
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = amrcompany.com
-DNS.2 = www.amrcompany.com
-DNS.3 = admin.amrcompany.com
-DNS.4 = app.amrcompany.com
+DNS.1 = basuyandsell.com
+DNS.2 = www.basuyandsell.com
+DNS.3 = admin.basuyandsell.com
+DNS.4 = app.basuyandsell.com
 DNS.5 = localhost
 
 [ext]

@@ -1,28 +1,12 @@
-name: AmrCompany
+name: basuyandsell
 services:
-  admin_webserver:
-    container_name: admin_panel
+  webserver:
+    container_name: webserver
     build: ./php-fpm/
     volumes:
-      - ../website/admin/:/var/www/html/
+      - ../website/:/var/www/html/
     networks:
-      - amrcompany
-
-  app_webserver:
-    container_name: web_app
-    build: ./php-fpm/
-    volumes:
-      - ../website/app/:/var/www/html/
-    networks:
-      - amrcompany
-  
-  landing_webserver:
-    container_name: landing_page
-    build: ./php-fpm/
-    volumes:
-      - ../website/main/:/var/www/html/
-    networks:
-      - amrcompany
+      - basuyandsell
 
   nginx:
     container_name: nginx
@@ -31,12 +15,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    depends_on:
-      - admin_webserver
-      - app_webserver
-      - landing_webserver
     networks:
-      - amrcompany
+      - basuyandsell
     
   postgresql:
     image: postgres:14.21-alpine3.23
@@ -44,8 +24,6 @@ services:
     env_file:
       - .env
     restart: unless-stopped
-    ports:
-      - "5432:5432"
     volumes:
       - pg_volume:/var/lib/postgresql/data/:rw
       - ./postgre/init/:/docker-entrypoint-initdb.d/:ro
@@ -60,7 +38,7 @@ services:
       start_period: 60s
     stop_grace_period: 120s
     networks:
-      - amrcompany
+      - basuyandsell
 
   pgadmin:
     image: dpage/pgadmin4
@@ -77,70 +55,15 @@ services:
     links:
       - postgresql
     networks:
-      - amrcompany
+      - basuyandsell
 
-  mysql:
-    container_name: mysql_db
-    image: mysql:latest
-    env_file: .env
-    ports:
-      - "3306:3306"
-    volumes:
-#     - ./docker/data/conf.d:/etc/mysql/conf.d
-#     - ./docker/data/logs:/logs
-      - ./mysql:/docker-entrypoint-initdb.d
-      - mysql_volume:/var/lib/mysql
-    networks:
-      - amrcompany
-
-  phpmyadmin:
-    container_name: phpMyAdmin
-    image: phpmyadmin/phpmyadmin
-    env_file: .env
-    ports:
-      - "8082:80"
-    depends_on:
-      - mysql
-    networks:
-      - amrcompany
-
-
-  # phppgadmin:
-  #   restart: always
-  #   container_name: PhpPgAdmin
-  #   image: dockage/phppgadmin:latest
-  #   ports:
-  #     - "8081:80"
-  #     - "8082:443"
-  #   env_file:
-  #     - .env
-  #   depends_on:
-  #     - postgresql
-  #   networks:
-  #     - amrcompany
-
-  sessions-cache:
-    image: redis:7.4-alpine
-    container_name: Redis
-    restart: always
-    ports:
-      - "6379:6379"
-    command: redis-server --save 20 1 --loglevel warning --requirepass yourpassword
-    volumes:
-      - cache:/data
-    networks:
-      - amrcompany
 
 networks:
-  amrcompany:
+  basuyandsell:
     driver: bridge
 
 volumes:
   pg_volume:
-    driver: local
-  cache:
-    driver: local
-  mysql_volume:
     driver: local
   pgadmin-data:
     driver: local

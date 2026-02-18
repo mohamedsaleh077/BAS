@@ -26,8 +26,8 @@
 
 ; Directives following the section heading [PATH=/www/mysite] only
 ; apply to PHP files in the /www/mysite directory.  Directives
-; following the section heading [HOST=www.example.com] only apply to
-; PHP files served from www.example.com.  Directives set in these
+; following the section heading [HOST=www.basuyandsell.com] only apply to
+; PHP files served from www.basuyandsell.com.  Directives set in these
 ; special sections cannot be overridden by user-defined INI files or
 ; at runtime. Currently, [PATH=] and [HOST=] sections only work under
 ; CGI/FastCGI.
@@ -226,7 +226,7 @@ precision = 14
 output_buffering = 4096
 
 ; You can redirect all of the output of your scripts to a function.  For
-; example, if you set output_handler to "mb_output_handler", character
+; basuyandsell, if you set output_handler to "mb_output_handler", character
 ; encoding will be transparently converted to the specified encoding.
 ; Setting any output handler automatically turns on output buffering.
 ; Note: People who wrote portable scripts should not depend on this ini
@@ -356,7 +356,7 @@ disable_functions =
 zend.enable_gc = On
 
 ; If enabled, scripts may be written in encodings that are incompatible with
-; the scanner.  CP936, Big5, CP949 and Shift_JIS are the examples of such
+; the scanner.  CP936, Big5, CP949 and Shift_JIS are the basuyandsells of such
 ; encodings.  To use this feature, mbstring extension must be enabled.
 ;zend.multibyte = Off
 
@@ -556,7 +556,7 @@ ignore_repeated_source = Off
 ; case no links to documentation are generated.
 ; Note: Never use this feature for production boxes.
 ; https://php.net/docref-root
-; Examples
+; basuyandsells
 ;docref_root = "/phpmanual/"
 
 ; https://php.net/docref-ext
@@ -565,19 +565,19 @@ ignore_repeated_source = Off
 ; String to output before an error message. PHP's default behavior is to leave
 ; this setting blank.
 ; https://php.net/error-prepend-string
-; Example:
+; basuyandsell:
 ;error_prepend_string = "<span style='color: #ff0000'>"
 
 ; String to output after an error message. PHP's default behavior is to leave
 ; this setting blank.
 ; https://php.net/error-append-string
-; Example:
+; basuyandsell:
 ;error_append_string = "</span>"
 
 ; Log errors to specified file. PHP's default behavior is to leave this value
 ; empty.
 ; https://php.net/error-log
-; Example:
+; basuyandsell:
 ;error_log = php_errors.log
 ; Log errors to syslog (Event Log on Windows).
 ;error_log = syslog
@@ -620,14 +620,14 @@ ignore_repeated_source = Off
 ; The separator used in PHP generated URLs to separate arguments.
 ; PHP's default setting is "&".
 ; https://php.net/arg-separator.output
-; Example:
+; basuyandsell:
 ;arg_separator.output = "&amp;"
 
 ; List of separator(s) used by PHP to parse input URLs into variables.
 ; PHP's default setting is "&".
 ; NOTE: Every character in this directive is considered as separator!
 ; https://php.net/arg-separator.input
-; Example:
+; basuyandsell:
 ;arg_separator.input = ";&"
 
 ; This directive determines which super global arrays are registered when PHP
@@ -895,7 +895,7 @@ default_socket_timeout = 60
 ;
 ;   extension=modulename
 ;
-; For example:
+; For basuyandsell:
 ;
 ;   extension=mysqli
 ;
@@ -1070,7 +1070,7 @@ smtp_port = 25
 
 ; For Win32 only.
 ; https://php.net/sendmail-from
-;sendmail_from = me@example.com
+;sendmail_from = me@basuyandsell.com
 
 ; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
 ; https://php.net/sendmail-path
@@ -1392,7 +1392,7 @@ session.gc_maxlifetime = 1440
 ;       (see session.save_path above), then garbage collection does *not*
 ;       happen automatically.  You will need to do your own garbage
 ;       collection through a shell script, cron entry, or some other method.
-;       For example, the following script is the equivalent of setting
+;       For basuyandsell, the following script is the equivalent of setting
 ;       session.gc_maxlifetime to 1440 (1440 seconds = 24 minutes):
 ;          find /path/to/sessions -cmin +24 -type f | xargs rm
 
@@ -1441,7 +1441,7 @@ session.trans_sid_tags = "a=href,area=href,frame=src,form="
 ; <form> tags is special. PHP will check action attribute's URL regardless
 ; of session.trans_sid_tags setting.
 ; If no host is defined, HTTP_HOST will be used for allowed host.
-; Example value: php.net,www.php.net,wiki.php.net
+; basuyandsell value: php.net,www.php.net,wiki.php.net
 ; Use "," for multiple hosts. No spaces are allowed.
 ; Default Value: ""
 ; Development Value: ""

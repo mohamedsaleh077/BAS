@@ -5,16 +5,18 @@ WORKDIR /var/www/html/
 ENV PHP_INI_DIR /usr/local/etc/php
 
 RUN apt-get update && apt-get install -y \
-    libzip-dev zip $PHPIZE_DEPS
+    libzip-dev zip $PHPIZE_DEPS git
 
 RUN pecl install xdebug
 RUN docker-php-ext-install zip 
 RUN docker-php-ext-enable xdebug
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 ENV APP_ENV production
 ENV APP_DEBUG true
 
-LABEL maintainer="Your Name <mohammed.saleh@tuta.io>"
+LABEL maintainer="Mohammed Saleh <mohammed.saleh@tuta.io>"
 LABEL version="1.0"
 LABEL description="Docker image for PHP 8.5 FPM"
 
