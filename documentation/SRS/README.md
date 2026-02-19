@@ -155,10 +155,9 @@ I will rate from 4.
 | PostgreSQL      | DataBase                            | Store the data                        |
 | LucidChart      | Drawing Diagrams App                | Drawing Digarams and UMLs             |
 | drawdb.io       | Database Drawing webapp             | Prepareing the schema, create SQL code|
-| phpPgAdmin      | PHP admin for PostgreSQL            | Managing the Database                 |
+|   PgAdmin      | PHP admin for PostgreSQL            | Managing the Database                 |
 | Anubis          | Web AI Firewall                     | prevent DDoS and Bad Quality Requests |
-| Apache          | Web server                          | hosting and routing                   |
-| Caddy           | Reverse Proxy                       | for HTTPS connection protocol         |
+| Nginx          | Web server                          | hosting and routing                   |
 | Extrnal APIs    | Integrations with external services | for SMS, Mails, Payment and real-time Notificatiosn|
 
 ## 2.6 User Documentation
@@ -179,12 +178,13 @@ I will rate from 4.
 
 # External Interface Requirements
 ## 3.1 User Interfaces
-
-    Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.
+![lanfing](./landing.jpg)
+![lanfing](./landing2.jpg)
+![[product]](./product.jpg)
+![join](./join.jpg)
 
 ## 3.2 Hardware Interfaces
-
-    Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+Amazonn Lightseal
 
 ## 3.3 Software Interfaces
 
