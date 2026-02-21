@@ -102,8 +102,8 @@ this project is just a clone of amazone, and this is the main objects
     - Delivery
         - Review the Orders in his location.
         - update for delivered products.
-- Products
-- Notifications
+- Products and Sub Products
+- Notifications and Locations
 
 ## 2.2 Product Functions
 ![Product Simple Map](./simple_data_flow_chart.png)
@@ -130,6 +130,7 @@ I will rate from 4.
     - Emails: External API Integration or SMTP (latest).
     - SMS: External API Integration.
     - Payment: External API Integration.
+    - Maps API
     - Real-Time Notifications: Node.js unit (I am lying) / External API Integration.
 
 ## 2.5 Design and Implementation Constraints
@@ -174,7 +175,9 @@ I will rate from 4.
 - Real-Time notifications
 - Maps
 - E-Mail
-- ...
+- PayMob
+- Instapay
+- ID verify
 
 # External Interface Requirements
 ## 3.1 User Interfaces
@@ -184,40 +187,98 @@ I will rate from 4.
 ![join](./join.jpg)
 
 ## 3.2 Hardware Interfaces
-Amazonn Lightseal
+Amazon Lightseal
 
 ## 3.3 Software Interfaces
-
-    Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for basuyandsell, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
+- The project is a website, will run on any browser.
+- PostgreSQL databse, will use my own ORM engine.
+- API Integrations for:
+    - Maps
+    - Location
+    - Notifications
+    - Payment
+    - Emails
+    - SMS
+    - Anubis web Firewall
+- Tailwind, JQuery
 
 ## 3.4 Communications Interfaces
-
-    Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.
+- HTTPS in Web Browser to Access the Web page and the API
 
 # System Features
+## 4.1 Register
+### 4.1.1 Description and Priority
+- High Priority.
+- allows users to create accounts to use our service
+### 4.1.2 Stimulus/Response Sequences
+- user inserts his:
+    - full name *
+    - email *
+    - country phone code 
+    - phone number 
+    - password *
+    - Captha *
+    - Agree on service terms
+- System Checks the input and respond
+    - full name must be 5 ~ 255 char
+    - valid email
+    - valid country code
+    - valid phone number
+    - validate the captcha
+    - more than 8 chars password
+    - accept the terms of usage and privacy policies
+    - if email and phone is not used before, if used, redirect to forget password
+- for 2FA
+    - save the code that user added to his authinticator
+    - save recovery phases
+![Squence Diagram for Registation](./SD-Registeration.svg)
 
-    This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.
+### 4.1.3 Functional Requirements
+- authentication
+- verification
+- notifications 
 
-## 4.1 System Feature 1
 
-    Don’t really say “System Feature 1.” State the feature name in just a few words.
+    To Be Continude ...
+    <!--
+## 4.2 Choose Role
+### 4.2.1 Description and Priority
+- High Priority.
+- after user register, he need to pick a role, customer, vendor or delivery.
+### 4.2.2 Stimulus/Response Sequences
+- Ask the user for his role
+    - if normal user, finish
+    - if a vendor
+        - ask the user to add this info
+            - add store name
+            - choose store categories and subcategories (Many)
+            - add physical addresses (Many)
+            - add social media and website (Many)
+            - add working hours
+        - if something not valid? return with descriptive error, save last inputs
+        - Ask if vendor have another store to add
+        - Ask if the inserted phone have instapay or not, if not ask to add.
+        - if something not valid? return with descriptive error, save last inputs
+    - if Delivery
+        - add Vehicals if he have
+        - add city
+        - select supported range from a map
+        - add aviliblty hours
+        - Ask if the inserted phone have instapay or not, if not ask to add.
+        - Upload Nation ID with both faces
+        - if something not valid? return with descriptive error, save last inputs
+- if something not valid? return with descriptive error, save last inputs
+- after finishing, redirect user to home page with his profile and enable all features for his role
+- if user is vendor or delivery, wait for admin approval.
+- send notification for admin to approve vendors and delivery.
+- send welcome email to the new user.
+### 4.2.3 Functional Requirements
+- Choices
+- gather information
+- notify admin
+- get nation id
+- welcome message
 
-## 4.1.1 Description and Priority
-
-    Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).
-
-## 4.1.2 Stimulus/Response Sequences
-
-    List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.
-
-## 4.1.3 Functional Requirements
-
-    Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.
-
-    Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.
-
-## 4.2 System Feature 2 (and so on)
-Other Nonfunctional Requirements
 
 # Other Nonfunctional Requirements
 ## 5.1 Performance Requirements
